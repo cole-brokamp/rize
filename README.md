@@ -9,7 +9,7 @@
 
 Within the working directory of a shiny application, run in R:
 
-`automagic::shiny_dockerize()`
+`rize::shiny_dockerize()`
 
 This function takes the following steps to build, test, and view a dockerized shiny application:
 
@@ -34,5 +34,5 @@ Several things happen when this base image is used to generate a dockerized shin
 ## Install
 
 Install with `remotes::install_github('cole-brokamp/rize')`.   
-Make sure that a valid docker installation is available on your machine.
-This package has only been tested with the docker executable, *not* with Docker Toolbox.
+
+Make sure that a valid docker installation is available on your machine. This package has only been tested with the docker executable, *not* with Docker Toolbox.
