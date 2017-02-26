@@ -2,6 +2,7 @@
 
 [![](https://images.microbadger.com/badges/image/colebrokamp/rize.svg)](https://microbadger.com/images/colebrokamp/rize)
 [![](https://images.microbadger.com/badges/version/colebrokamp/rize.svg)](https://hub.docker.com/r/colebrokamp/rize/)
+[![DOI](https://zenodo.org/badge/82612564.svg)](https://zenodo.org/badge/latestdoi/82612564)
 
 > A robust method to automagically docke**rize** your R Shiny Application
 
