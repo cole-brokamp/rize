@@ -24,10 +24,10 @@ shiny_dockerize <- function(directory=getwd(),re.automagic=FALSE,
   }
   # if no Dockerfile, make one
   if (!file.exists(file.path(directory,'Dockerfile'))) {
-    cat('FROM colebrokamp/shiny:latest',file='Dockerfile',append=FALSE)
+    cat('FROM colebrokamp/rize:latest',file='Dockerfile',append=FALSE)
   }
   # find docker installation
-  docker_cmd <- automagic::find_docker_cmd()
+  docker_cmd <- find_docker_cmd()
 
   # build image
   message('building the docker image...')
