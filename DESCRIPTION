@@ -15,7 +15,5 @@ LazyData: true
 RoxygenNote: 5.0.1
 Imports:
     automagic
-Remotes:
-    cole-brokamp/automagic
 URL: https://github.com/cole-brokamp/rize
 BugReports: https://github.com/cole-brokamp/rize/issues
