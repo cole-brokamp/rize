@@ -17,9 +17,9 @@
 shiny_dockerize <- function(directory=getwd(),re.automagic=FALSE,
                             app.name=basename(directory)) {
   # if no dependencies file, make one (force rescan with re.automagic)
-  if (!file.exists(file.path(directory,'automagic.dependencies')) | re.automagic) {
-    if (re.automagic) unlink(file.path(directory,'automagic.dependencies'))
-    message('making dependency file with automagic...')
+  if (!file.exists(file.path(directory,'deps.yaml')) | re.automagic) {
+    if (re.automagic) unlink(file.path(directory,'deps.yaml'))
+    message('making deps.yaml dependency file with automagic...')
     automagic::make_deps_file(directory=directory)
   }
   # if no Dockerfile, make one
