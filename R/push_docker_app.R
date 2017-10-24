@@ -9,7 +9,7 @@
 #'
 push_docker_app <- function(app.name=basename(getwd()),repo='126952269818.dkr.ecr.us-east-1.amazonaws.com'){
   # login
-  login_cmd <- system2('aws',c('ecr','get-login'),stdout=TRUE)
+  login_cmd <- system2('aws',c('ecr','get-login','--no-include-email'),stdout=TRUE)
   login_cmd <- strsplit(login_cmd,' ')[[1]][-1]
   system2(find_docker_cmd(),c(login_cmd))
   # create repo
