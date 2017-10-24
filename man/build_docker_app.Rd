@@ -12,4 +12,3 @@ build_docker_app(app.name = basename(getwd()))
 \description{
 build docker application
 }
-

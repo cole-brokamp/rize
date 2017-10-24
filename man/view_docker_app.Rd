@@ -12,4 +12,3 @@ view_docker_app(app.name = basename(getwd()))
 \description{
 run and view a dockerized shiny app
 }
-

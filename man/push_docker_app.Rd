@@ -18,4 +18,3 @@ push a docker image to AWS ECR
 \details{
 Amazon web services command line tools must be installed and configured for this to properly work
 }
-

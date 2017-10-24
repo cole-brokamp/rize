@@ -12,4 +12,3 @@ character string that is location of the docker executable
 \description{
 find the docker executable
 }
-

@@ -27,4 +27,3 @@ This is a wrapper function that uses automagic package to build,
 \seealso{
 \code{\link{find_docker_cmd}}, \code{\link{build_docker_app}}, \code{\link{view_docker_app}}
 }
-

@@ -14,4 +14,3 @@ find_docker_image(repo, tag = "latest")
 \description{
 find docker image
 }
-
