@@ -4,6 +4,9 @@
 #'   working directory)
 #' @param re.automagic logical; force automagic to recreate dependencies file
 #' @param app.name defaults to the basename of \code{directory}
+#' @param base Dockerfile template to use, use NULL to create one-line Dockerfile for customisation
+#' @param build Should the image try to be built
+#' @param launch Should the image be launched immediately
 #'
 #' @details This is a wrapper function that uses automagic package to build,
 #'   test, and view a dockerized shiny application. See
@@ -15,7 +18,8 @@
 #' @export
 #'
 shiny_dockerize <- function(directory=getwd(),re.automagic=FALSE,
-                            app.name=basename(directory)) {
+                            app.name=basename(directory), build = TRUE, launch = TRUE,
+                            base = system.file('rize','rize-Dockerfile', package = 'rize')) {
   # if no dependencies file, make one (force rescan with re.automagic)
   if (!file.exists(file.path(directory,'deps.yaml')) | re.automagic) {
     if (re.automagic) unlink(file.path(directory,'deps.yaml'))
@@ -24,17 +28,27 @@ shiny_dockerize <- function(directory=getwd(),re.automagic=FALSE,
   }
   # if no Dockerfile, make one
   if (!file.exists(file.path(directory,'Dockerfile'))) {
-    cat('FROM colebrokamp/rize:latest',file='Dockerfile',append=FALSE)
+    if(is.null(base)){
+      cat('FROM colebrokamp/rize:latest', file=file.path(directory,'Dockerfile'),
+          append=FALSE)
+    } else {
+      file.copy(base, file.path(directory,'Dockerfile'))
+    }
+
   }
   # find docker installation
   docker_cmd <- find_docker_cmd()
 
   # build image
+  if(build){
   message('building the docker image...')
   build_docker_app(app.name)
+  }
 
   # test view it
+  if(launch){
   message('running container to view the app...')
   view_docker_app(app.name)
+  }
 
 }

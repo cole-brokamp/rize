@@ -5,7 +5,8 @@
 \title{dockerize a shiny application}
 \usage{
 shiny_dockerize(directory = getwd(), re.automagic = FALSE,
-  app.name = basename(directory))
+  app.name = basename(directory), build = TRUE, launch = TRUE,
+  base = system.file("rize", "rize-Dockerfile", package = "rize"))
 }
 \arguments{
 \item{directory}{path to directory containing the shiny app (defaults to
@@ -14,6 +15,12 @@ working directory)}
 \item{re.automagic}{logical; force automagic to recreate dependencies file}
 
 \item{app.name}{defaults to the basename of \code{directory}}
+
+\item{build}{Should the image try to be built}
+
+\item{launch}{Should the image be launched immediately}
+
+\item{base}{Dockerfile template to use, use NULL to create one-line Dockerfile for customisation}
 }
 \description{
 dockerize a shiny application
