@@ -4,6 +4,7 @@
 #'   working directory)
 #' @param re.automagic logical; force automagic to recreate dependencies file
 #' @param app.name defaults to the basename of \code{directory}
+#' @param view_app defaults to TRUE, run the Docker container to preview
 #'
 #' @details This is a wrapper function that uses automagic package to build,
 #'   test, and view a dockerized shiny application. See
@@ -15,7 +16,7 @@
 #' @export
 #'
 shiny_dockerize <- function(directory=getwd(),re.automagic=FALSE,
-                            app.name=basename(directory)) {
+                            app.name=basename(directory), view_app=TRUE) {
   # if no dependencies file, make one (force rescan with re.automagic)
   if (!file.exists(file.path(directory,'deps.yaml')) | re.automagic) {
     if (re.automagic) unlink(file.path(directory,'deps.yaml'))
@@ -34,7 +35,8 @@ shiny_dockerize <- function(directory=getwd(),re.automagic=FALSE,
   build_docker_app(app.name)
 
   # test view it
-  message('running container to view the app...')
-  view_docker_app(app.name)
-
+  if (view_app) {
+    message('running container to view the app...')
+    view_docker_app(app.name)
+  }
 }
