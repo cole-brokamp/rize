@@ -15,8 +15,10 @@
 #'
 #' @export
 #'
-shiny_dockerize <- function(directory=getwd(),re.automagic=FALSE,
-                            app.name=basename(directory), view_app=TRUE) {
+shiny_dockerize <- function(directory = getwd(),
+                            re.automagic = FALSE,
+                            app.name = basename(directory),
+                            view.app = FALSE) {
   # if no dependencies file, make one (force rescan with re.automagic)
   if (!file.exists(file.path(directory,'deps.yaml')) | re.automagic) {
     if (re.automagic) unlink(file.path(directory,'deps.yaml'))
