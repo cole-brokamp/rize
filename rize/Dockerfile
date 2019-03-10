@@ -1,6 +1,10 @@
-FROM colebrokamp/r-shiny
+FROM rocker/shiny
 
 MAINTAINER "Cole Brokamp" cole.brokamp@gmail.com
+
+RUN echo "options(repos = c(CRAN = 'https://cran.rstudio.com/'), prompt='R > ', download.file.method = 'libcurl')" > /.Rprofile
+
+RUN R -e "install.packages('automagic')"
 
 ## ON BUILD
 
